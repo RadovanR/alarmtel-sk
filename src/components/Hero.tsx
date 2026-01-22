@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section id="home" className="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-navy-900 z-0">
                 <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-electric/5 rounded-full blur-[120px] transform translate-x-1/2 -translate-y-1/2" />
@@ -43,10 +43,7 @@ const Hero = () => {
                     </div>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                <div
                     className="relative hidden lg:block"
                 >
                     {/* Levitating Images Composition - 2 Large Photos */}
@@ -56,8 +53,10 @@ const Hero = () => {
 
                         {/* Image 3: Left - Access Control (New - Side) */}
                         <motion.div
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            transition={{ duration: 0.3 }}
+                            initial={{ opacity: 0, x: -50, y: -20 }}
+                            animate={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
                             className="absolute top-[10%] left-0 w-[40%] aspect-square rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-10"
                         >
                             <img
@@ -69,24 +68,12 @@ const Hero = () => {
                             <div className="absolute inset-0 bg-electric/10 mix-blend-overlay" />
                         </motion.div>
 
-                        {/* Image 1: Bottom/Left - CCTV (Large) */}
-                        <motion.div
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute bottom-4 left-[20%] w-[75%] aspect-video rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-20"
-                        >
-                            <img
-                                src="/images/hero-cctv.png"
-                                alt="Moderný kamerový systém"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
-                        </motion.div>
-
                         {/* Image 2: Top/Right - Intercom (Large) */}
                         <motion.div
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            transition={{ duration: 0.3 }}
+                            initial={{ opacity: 0, x: 50, y: -20 }}
+                            animate={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.35 }}
+                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
                             className="absolute top-0 right-0 w-[55%] aspect-[4/3] rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-0"
                         >
                             <img
@@ -97,8 +84,24 @@ const Hero = () => {
                             {/* Blue overlay tint */}
                             <div className="absolute inset-0 bg-electric/10 mix-blend-overlay" />
                         </motion.div>
+
+                        {/* Image 1: Bottom/Left - CCTV (Large) */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
+                            className="absolute bottom-4 left-[20%] w-[75%] aspect-video rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-20"
+                        >
+                            <img
+                                src="/images/hero-cctv.png"
+                                alt="Moderný kamerový systém"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+                        </motion.div>
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-app">
