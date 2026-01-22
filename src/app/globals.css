@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #020617;
+  --color-navy-900: #0b1120;
+  --color-navy-800: #0f172a;
+  --color-navy-700: #1e293b;
+  --color-navy-600: #334155;
+
+  --color-electric: #00d4ff;
+
+  --color-slate-light: #f8fafc;
+  --color-slate-app: #94a3b8;
+
+  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  --shadow-glow-hover: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300;
+    background-color: var(--color-electric);
+    color: var(--color-navy-950);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-primary:hover {
+    @apply bg-cyan-300;
+    box-shadow: var(--shadow-glow-hover);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md border;
+    background-color: color-mix(in srgb, var(--color-navy-800), transparent 50%);
+    border-color: color-mix(in srgb, var(--color-navy-700), transparent 50%);
+  }
+}
