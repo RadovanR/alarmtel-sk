@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // Using Inter as it has good support for Slovak characters
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="sk" className="scroll-smooth scroll-pt-20" suppressHydrationWarning>
       <body className={`${inter.className} bg-navy-900 text-slate-light`} suppressHydrationWarning>
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
