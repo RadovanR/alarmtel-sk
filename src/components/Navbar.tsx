@@ -1,12 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.3, rootMargin: "-10%" }
+        );
+
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
 
     const navLinks = [
         { name: 'Domov', href: '#home' },
@@ -16,7 +44,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed w-full z-50 bg-navy-900/90 backdrop-blur-md border-b border-navy-700/50">
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-navy-900/90 backdrop-blur-md border-b border-navy-700/50 h-20' : 'bg-transparent border-transparent h-24'}`}>
             <div className="container-custom flex justify-between items-center h-20">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
@@ -40,7 +68,10 @@ const Navbar = () => {
                                 const element = document.querySelector(link.href);
                                 element?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="text-slate-app hover:text-electric transition-colors text-sm uppercase tracking-widest font-medium cursor-pointer"
+                            className={`text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors ${activeSection === link.href.substring(1)
+                                    ? 'text-electric scale-105 font-bold'
+                                    : 'text-slate-app hover:text-electric'
+                                }`}
                         >
                             {link.name}
                         </a>

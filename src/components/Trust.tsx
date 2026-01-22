@@ -1,7 +1,26 @@
 'use client';
-
+import { useRef, useEffect } from 'react';
 import { CheckCircle2, Award, Wrench, Users, ShieldCheck, History, ThumbsUp } from 'lucide-react';
 import { motion } from 'framer-motion';
+import VanillaTilt from 'vanilla-tilt';
+
+const Tilt = ({ children, options, className }: { children: React.ReactNode, options?: any, className?: string }) => {
+    const tiltRef = useRef(null);
+
+    useEffect(() => {
+        if (tiltRef.current) {
+            VanillaTilt.init(tiltRef.current, options || {
+                max: 15,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2,
+                scale: 1.05
+            });
+        }
+    }, [options]);
+
+    return <div ref={tiltRef} className={className}>{children}</div>;
+};
 
 const Trust = () => {
     return (
@@ -13,7 +32,7 @@ const Trust = () => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Text Content */}
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
                             Viac ako <span className="text-electric">25 rokov</span> bezpečnosti bez kompromisov
                         </h2>
                         <p className="text-slate-app mb-8 text-lg">
@@ -76,10 +95,9 @@ const Trust = () => {
                                 desc: 'Garancia spokojnosti'
                             },
                         ].map((item, i) => (
-                            <motion.div
+                            <Tilt
                                 key={i}
-                                whileHover={{ scale: 1.05 }}
-                                className="relative aspect-square rounded-xl overflow-hidden border border-navy-600 group cursor-default shadow-lg"
+                                className="relative aspect-square rounded-xl overflow-hidden border border-navy-600 group cursor-default shadow-lg transform-gpu"
                             >
                                 {/* Background Image */}
                                 <div className="absolute inset-0">
@@ -94,12 +112,12 @@ const Trust = () => {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/90 via-navy-900/40 to-transparent" />
 
                                 {/* Content */}
-                                <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10 transform translate-z-10 group-hover:translate-z-20 transition-transform duration-300">
                                     <div className="mb-3 p-3 rounded-full bg-electric/10 border border-electric/30 text-electric shadow-[0_0_15px_rgba(0,212,255,0.2)] group-hover:scale-110 transition-transform duration-300">
                                         <item.icon size={28} strokeWidth={1.5} />
                                     </div>
 
-                                    <h3 className="text-white font-bold text-lg tracking-wide mb-1 drop-shadow-md uppercase">
+                                    <h3 className="font-heading text-white font-bold text-lg tracking-wide mb-1 drop-shadow-md uppercase">
                                         {item.title}
                                     </h3>
 
@@ -107,7 +125,7 @@ const Trust = () => {
                                         {item.desc}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </Tilt>
                         ))}
                     </div>
                 </div>

@@ -15,7 +15,7 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-600/5 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2" />
             </div>
 
-            <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-20 items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ const Hero = () => {
                     <div className="inline-block px-3 py-1 mb-6 border border-electric/30 rounded-full bg-electric/5 text-electric text-sm font-semibold tracking-wide">
                         SPOĽAHLIVOSŤ OVERENÁ ROKMI SKÚSENOSTÍ
                     </div>
-                    <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white">
+                    <h1 className="font-heading text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white">
                         Špičkové zabezpečenie pre <span className="text-electric">domov a firmy</span>
                     </h1>
                     <p className="text-lg text-slate-app mb-8 max-w-lg leading-relaxed">

@@ -67,7 +67,7 @@ const Services = () => {
         <section id="services" className="py-24 bg-navy-900 relative">
             <div className="container-custom">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Naše <span className="text-electric">Služby</span></h2>
+                    <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Naše <span className="text-electric">Služby</span></h2>
                     <p className="text-slate-app max-w-2xl mx-auto">
                         Poskytujeme komplexné portfólio bezpečnostných riešení prispôsobených vašim potrebám.
                     </p>
@@ -89,7 +89,7 @@ const Services = () => {
                             <div className="mb-3">
                                 <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">{service.tag}</span>
                             </div>
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-electric transition-colors">{service.title}</h3>
+                            <h3 className="font-heading text-xl font-bold mb-2 group-hover:text-electric transition-colors">{service.title}</h3>
                             <p className="text-slate-app text-sm leading-relaxed">
                                 {service.description}
                             </p>
@@ -126,7 +126,7 @@ const Services = () => {
                             <div className="w-20 h-20 rounded-full bg-navy-900 border border-navy-700 group-hover:border-electric/50 shadow-lg shadow-black/20 flex items-center justify-center mb-6 relative z-10 transition-all duration-300 group-hover:scale-110">
                                 {offer.icon}
                             </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-electric transition-colors">{offer.title}</h3>
+                            <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-electric transition-colors">{offer.title}</h3>
                             <p className="text-slate-app text-sm leading-relaxed max-w-[220px]">
                                 {offer.description}
                             </p>

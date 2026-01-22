@@ -22,7 +22,7 @@ const Contact = () => {
             <div className="container-custom">
                 <div className="grid lg:grid-cols-2 gap-16">
                     <div>
-                        <h2 className="text-4xl font-bold mb-6">Napíšte nám</h2>
+                        <h2 className="font-heading text-4xl font-bold mb-6">Napíšte nám</h2>
                         <p className="text-slate-app mb-10 text-lg">
                             Máte otázky alebo záujem o cenovú ponuku?
                             Vyplňte formulár a my sa vám ozveme čo najskôr.
@@ -35,9 +35,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">Zavolajte nám</h4>
-                                    <a href="tel:+421918565051" className="text-slate-app hover:text-electric transition-colors">+421 918 565 051</a>
-                                    <br />
-                                    <a href="tel:+421905365788" className="text-slate-app hover:text-electric transition-colors">+421 905 365 788</a>
+                                    <a href="tel:+421918565051" className="text-slate-app hover:text-electric transition-colors block">+421 918 565 051</a>
+                                    <a href="tel:+421905365788" className="text-slate-app hover:text-electric transition-colors block">+421 905 365 788</a>
                                 </div>
                             </div>
 
@@ -64,6 +63,8 @@ const Contact = () => {
                                     </p>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
 
