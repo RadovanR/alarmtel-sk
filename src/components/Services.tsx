@@ -64,7 +64,7 @@ const Services = () => {
     ];
 
     return (
-        <section id="services" className="py-24 bg-navy-900 relative">
+        <section id="services" className="py-32 bg-navy-900 relative">
             <div className="container-custom">
                 <div className="text-center mb-16">
                     <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Naše <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">Služby</span></h2>

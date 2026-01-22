@@ -24,7 +24,7 @@ const Tilt = ({ children, options, className }: { children: React.ReactNode, opt
 
 const Trust = () => {
     return (
-        <section id="trust" className="py-20 bg-navy-800 relative overflow-hidden">
+        <section id="trust" className="pt-32 pb-0 bg-navy-800 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#00d4ff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
 
@@ -131,9 +131,9 @@ const Trust = () => {
                 </div>
 
                 {/* Bottom Trust Bar - Brand List */}
-                <div className="mt-20 pt-10 border-t border-navy-700/50">
+                <div className="mt-20 py-24 border-t border-navy-700/50">
                     <p className="text-center text-slate-500 text-sm mb-6 uppercase tracking-widest">Pracujeme s overenými technológiami</p>
-                    <div className="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div className="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                         <span className="text-xl font-bold text-white flex items-center gap-2">
                             PARADOX
                         </span>
