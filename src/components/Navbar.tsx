@@ -97,28 +97,67 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay & Sidebar */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-navy-900 border-b border-navy-700 overflow-hidden"
-                    >
-                        <div className="px-4 py-6 space-y-4 flex flex-col items-center">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-lg text-slate-light hover:text-electric font-medium"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-                    </motion.div>
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] md:hidden"
+                        />
+
+                        {/* Sidebar */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-navy-900 border-l border-navy-700 z-[70] md:hidden shadow-2xl"
+                        >
+                            <div className="flex flex-col h-full p-6">
+                                <div className="flex justify-end mb-8">
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        className="p-2 text-slate-400 hover:text-white transition-colors"
+                                    >
+                                        <X size={32} />
+                                    </button>
+                                </div>
+
+                                <div className="flex flex-col gap-6 items-center">
+                                    {navLinks.map((link) => (
+                                        <a
+                                            key={link.name}
+                                            href={link.href}
+                                            className="text-xl font-medium text-slate-light hover:text-electric transition-colors"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                                                setIsOpen(false);
+                                            }}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                    <a
+                                        href="#contact"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                                            setIsOpen(false);
+                                        }}
+                                        className="mt-4 px-6 py-3 border border-electric text-electric rounded-md hover:bg-electric/10 transition-colors font-bold text-center w-full"
+                                    >
+                                        CENOVÁ PONUKA
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>

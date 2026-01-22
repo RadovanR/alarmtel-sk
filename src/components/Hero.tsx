@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
+        <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 md:py-32 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-navy-900 z-0">
                 <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-electric/5 rounded-full blur-[120px] transform translate-x-1/2 -translate-y-1/2" />
@@ -44,10 +44,10 @@ const Hero = () => {
                 </motion.div>
 
                 <div
-                    className="relative hidden lg:block"
+                    className="relative block mt-20 lg:mt-0"
                 >
                     {/* Levitating Images Composition - 2 Large Photos */}
-                    <div className="relative w-full aspect-square">
+                    <div className="relative w-full aspect-square max-w-[500px] mx-auto lg:max-w-none">
                         {/* Decorative Center Glow */}
                         <div className="absolute inset-0 bg-electric/10 blur-[100px] rounded-full" />
 
@@ -56,7 +56,6 @@ const Hero = () => {
                             initial={{ opacity: 0, x: -50, y: -20 }}
                             animate={{ opacity: 1, x: 0, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
                             className="absolute top-[10%] left-0 w-[40%] aspect-square rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-10"
                         >
                             <img
@@ -73,7 +72,6 @@ const Hero = () => {
                             initial={{ opacity: 0, x: 50, y: -20 }}
                             animate={{ opacity: 1, x: 0, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.35 }}
-                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
                             className="absolute top-0 right-0 w-[55%] aspect-[4/3] rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-0"
                         >
                             <img
@@ -90,7 +88,6 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.5 }}
-                            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
                             className="absolute bottom-4 left-[20%] w-[75%] aspect-video rounded-2xl overflow-hidden border-2 border-electric shadow-[0_0_30px_rgba(0,212,255,0.3)] z-20"
                         >
                             <img
