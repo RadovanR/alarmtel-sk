@@ -1,35 +1,62 @@
 'use client';
 
-import { Cctv, ShieldAlert, KeyRound, Flame } from 'lucide-react';
+import { Cctv, ShieldAlert, KeyRound, Flame, Lightbulb, PencilRuler, Hammer, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Services = () => {
 
+    const offerings = [
+        {
+            id: 1,
+            title: 'Komplexné poradenstvo',
+            description: 'V oblasti bezpečnostných a telekomunikačných systémov',
+            icon: <Lightbulb className="w-10 h-10 text-electric" />,
+        },
+        {
+            id: 2,
+            title: 'Naprojektovanie systému',
+            description: 'Podľa vašich požiadaviek a našich skúseností',
+            icon: <PencilRuler className="w-10 h-10 text-electric" />,
+        },
+        {
+            id: 3,
+            title: 'Celková realizácia',
+            description: 'Od návrhu riešenia až po oživenie systému',
+            icon: <Hammer className="w-10 h-10 text-electric" />,
+        },
+        {
+            id: 4,
+            title: 'Záručný a pozáručný servis',
+            description: 'Všetkých ponúkaných systémov',
+            icon: <Wrench className="w-10 h-10 text-electric" />,
+        },
+    ];
+
     const services = [
         {
             id: 1,
-            title: 'EZS - Alarmy',
+            title: 'EZS - Zabezpečovacie systémy',
             description: 'Elektronické zabezpečovacie systémy pre okamžitú detekciu narušenia.',
             icon: <ShieldAlert className="w-10 h-10 text-electric" />,
             tag: 'Bezpečnosť',
         },
         {
             id: 2,
-            title: 'KMS - Kamery',
+            title: 'KMS - Kamerové systémy',
             description: 'Kamerové systémy s vysokým rozlíšením a nočným videním pre 24/7 monitoring.',
             icon: <Cctv className="w-10 h-10 text-electric" />,
             tag: 'Dohľad',
         },
         {
             id: 3,
-            title: 'RFID - Prístup',
+            title: 'RFID - Prístupové systémy',
             description: 'Inteligentné prístupové a dochádzkové systémy pre firmy a bytové domy.',
             icon: <KeyRound className="w-10 h-10 text-electric" />,
             tag: 'Kontrola',
         },
         {
             id: 4,
-            title: 'EPS - Požiarna',
+            title: 'EPS - Požiarna signalizácia',
             description: 'Elektrická požiarna signalizácia pre včasné varovanie pred požiarom.',
             icon: <Flame className="w-10 h-10 text-electric" />,
             tag: 'Ochrana',
@@ -65,6 +92,43 @@ const Services = () => {
                             <h3 className="text-xl font-bold mb-2 group-hover:text-electric transition-colors">{service.title}</h3>
                             <p className="text-slate-app text-sm leading-relaxed">
                                 {service.description}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="mt-24 mb-16 relative">
+                    <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div className="w-full border-t border-navy-700/50"></div>
+                    </div>
+                    <div className="relative flex justify-center">
+                        <span className="bg-navy-900 px-6 text-sm text-electric uppercase tracking-widest font-semibold">
+                            Komplexný proces realizácie
+                        </span>
+                    </div>
+                </div>
+
+                <div className="relative grid md:grid-cols-4 gap-8">
+                    {/* Connector Line (Desktop) */}
+                    <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-navy-700" aria-hidden="true">
+                        <div className="h-full w-full bg-gradient-to-r from-transparent via-electric/50 to-transparent" />
+                    </div>
+
+                    {offerings.map((offer, index) => (
+                        <motion.div
+                            key={offer.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            className="relative flex flex-col items-center text-center group"
+                        >
+                            <div className="w-20 h-20 rounded-full bg-navy-900 border border-navy-700 group-hover:border-electric/50 shadow-lg shadow-black/20 flex items-center justify-center mb-6 relative z-10 transition-all duration-300 group-hover:scale-110">
+                                {offer.icon}
+                            </div>
+                            <h3 className="text-xl font-bold mb-3 group-hover:text-electric transition-colors">{offer.title}</h3>
+                            <p className="text-slate-app text-sm leading-relaxed max-w-[220px]">
+                                {offer.description}
                             </p>
                         </motion.div>
                     ))}
