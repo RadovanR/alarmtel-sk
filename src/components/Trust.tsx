@@ -33,9 +33,9 @@ const Trust = () => {
                     {/* Left Text Content */}
                     <div>
                         <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-                            Viac ako <span className="text-electric">25 rokov</span> bezpečnosti bez kompromisov
+                            Viac ako <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">25 rokov</span> bezpečnosti bez kompromisov
                         </h2>
-                        <p className="text-slate-app mb-8 text-lg">
+                        <p className="text-slate-app mb-8 text-lg leading-relaxed">
                             Za našu históriu sme zabezpečili stovky objektov po celom Slovensku.
                             Naša odbornosť nie je len sľub, ale fakt podložený certifikátmi a spokojnosťou klientov.
                         </p>
@@ -47,7 +47,7 @@ const Trust = () => {
                                 'Zaškolenie obsluhy zdarma',
                                 'Pravidelné revízie a údržba'
                             ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-white font-medium text-lg">
+                                <li key={i} className="flex items-center gap-3 text-white font-medium text-lg leading-relaxed">
                                     <CheckCircle2 className="text-electric w-6 h-6 flex-shrink-0 drop-shadow-sm" />
                                     <span>{item}</span>
                                 </li>

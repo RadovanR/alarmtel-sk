@@ -25,9 +25,9 @@ const Hero = () => {
                         SPOĽAHLIVOSŤ OVERENÁ ROKMI SKÚSENOSTÍ
                     </div>
                     <h1 className="font-heading text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white">
-                        Špičkové zabezpečenie pre <span className="text-electric">domov a firmy</span>
+                        Špičkové zabezpečenie pre <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">domov a firmy</span>
                     </h1>
-                    <p className="text-lg text-slate-app mb-8 max-w-lg leading-relaxed">
+                    <p className="text-lg text-slate-app mb-10 max-w-xl leading-loose">
                         Komplexné riešenia od kamerových systémov až po inteligentné alarmy.
                         Chráňte to, na čom vám záleží, s technológiou, ktorej môžete dôverovať.
                     </p>
@@ -37,7 +37,7 @@ const Hero = () => {
                             Nezáväzná ponuka
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link href="#services" className="btn-primary text-center">
+                        <Link href="#services" className="bg-gradient-to-r from-electric to-blue-500 text-white font-bold hover:shadow-[0_0_30px_rgba(0,212,255,0.6)] hover:scale-105 transition-all duration-300 rounded-md py-3 px-8 text-center flex items-center justify-center">
                             Naše služby
                         </Link>
                     </div>

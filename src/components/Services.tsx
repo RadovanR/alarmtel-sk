@@ -67,8 +67,8 @@ const Services = () => {
         <section id="services" className="py-24 bg-navy-900 relative">
             <div className="container-custom">
                 <div className="text-center mb-16">
-                    <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Naše <span className="text-electric">Služby</span></h2>
-                    <p className="text-slate-app max-w-2xl mx-auto">
+                    <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">Naše <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">Služby</span></h2>
+                    <p className="text-slate-app max-w-2xl mx-auto text-lg leading-relaxed">
                         Poskytujeme komplexné portfólio bezpečnostných riešení prispôsobených vašim potrebám.
                     </p>
                 </div>
@@ -83,14 +83,14 @@ const Services = () => {
                             viewport={{ once: true }}
                             className="glass-card p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300 group"
                         >
-                            <div className="mb-4 p-3 bg-navy-700/30 rounded-lg w-fit group-hover:bg-electric/10 transition-colors">
+                            <div className="mb-4 p-3 bg-navy-700/30 rounded-lg w-fit group-hover:bg-electric/10 transition-all duration-300 shadow-[0_0_15px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.3)]">
                                 {service.icon}
                             </div>
                             <div className="mb-3">
                                 <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">{service.tag}</span>
                             </div>
                             <h3 className="font-heading text-xl font-bold mb-2 group-hover:text-electric transition-colors">{service.title}</h3>
-                            <p className="text-slate-app text-sm leading-relaxed">
+                            <p className="text-slate-app text-sm leading-loose">
                                 {service.description}
                             </p>
                         </motion.div>
@@ -123,7 +123,7 @@ const Services = () => {
                             viewport={{ once: true }}
                             className="relative flex flex-col items-center text-center group"
                         >
-                            <div className="w-20 h-20 rounded-full bg-navy-900 border border-navy-700 group-hover:border-electric/50 shadow-lg shadow-black/20 flex items-center justify-center mb-6 relative z-10 transition-all duration-300 group-hover:scale-110">
+                            <div className="w-20 h-20 rounded-full bg-navy-900 border border-navy-700 group-hover:border-electric/50 shadow-[0_0_20px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] flex items-center justify-center mb-6 relative z-10 transition-all duration-300 group-hover:scale-110">
                                 {offer.icon}
                             </div>
                             <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-electric transition-colors">{offer.title}</h3>

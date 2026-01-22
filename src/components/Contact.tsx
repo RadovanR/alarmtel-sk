@@ -23,7 +23,7 @@ const Contact = () => {
                 <div className="grid lg:grid-cols-2 gap-16">
                     <div>
                         <h2 className="font-heading text-4xl font-bold mb-6">Napíšte nám</h2>
-                        <p className="text-slate-app mb-10 text-lg">
+                        <p className="text-slate-app mb-10 text-lg leading-relaxed">
                             Máte otázky alebo záujem o cenovú ponuku?
                             Vyplňte formulár a my sa vám ozveme čo najskôr.
                         </p>
@@ -35,8 +35,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">Zavolajte nám</h4>
-                                    <a href="tel:+421918565051" className="text-slate-app hover:text-electric transition-colors block">+421 918 565 051</a>
-                                    <a href="tel:+421905365788" className="text-slate-app hover:text-electric transition-colors block">+421 905 365 788</a>
+                                    <a href="tel:+421918565051" className="text-slate-app hover:text-electric transition-colors block leading-relaxed">+421 918 565 051</a>
+                                    <a href="tel:+421905365788" className="text-slate-app hover:text-electric transition-colors block leading-relaxed">+421 905 365 788</a>
                                 </div>
                             </div>
 
@@ -46,7 +46,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">Napíšte e-mail</h4>
-                                    <a href="mailto:info@alarmtel.sk" className="text-slate-app hover:text-electric transition-colors">alarmtel@alarmtel.sk</a>
+                                    <a href="mailto:info@alarmtel.sk" className="text-slate-app hover:text-electric transition-colors leading-relaxed">alarmtel@alarmtel.sk</a>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">Navštívte nás</h4>
-                                    <p className="text-slate-app">
+                                    <p className="text-slate-app leading-relaxed">
                                         Južná Trieda 78 (areál ELTIP)<br />
                                         040 01 Košice<br />
                                         Slovensko
@@ -124,7 +124,7 @@ const Contact = () => {
                                 />
                             </div>
 
-                            <button type="submit" className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
+                            <button type="submit" className="w-full bg-gradient-to-r from-electric to-blue-500 text-white font-bold hover:shadow-[0_0_30px_rgba(0,212,255,0.6)] hover:scale-105 transition-all duration-300 rounded-md py-3 px-6 flex items-center justify-center gap-2 mt-4">
                                 Odoslať nezáväzne
                                 <Send className="w-4 h-4" />
                             </button>

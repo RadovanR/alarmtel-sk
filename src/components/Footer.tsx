@@ -5,7 +5,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
                         <span className="text-xl font-bold tracking-wider text-white">
-                            ALARMTEL <span className="text-electric">SK</span>
+                            ALARMTEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">SK</span>
                         </span>
                         <p className="text-slate-500 text-sm mt-2">© {new Date().getFullYear()} Alarmtel SK. Všetky práva vyhradené.</p>
                     </div>

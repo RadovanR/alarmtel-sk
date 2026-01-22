@@ -53,7 +53,7 @@ const Navbar = () => {
                         <div className="absolute inset-0 bg-electric/20 blur-lg rounded-full animate-pulse" />
                     </div>
                     <span className="text-2xl font-bold tracking-wider text-white">
-                        ALARMTEL <span className="text-electric">SK</span>
+                        ALARMTEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">SK</span>
                     </span>
                 </Link>
 
@@ -69,8 +69,8 @@ const Navbar = () => {
                                 element?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             className={`text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors ${activeSection === link.href.substring(1)
-                                    ? 'text-electric scale-105 font-bold'
-                                    : 'text-slate-app hover:text-electric'
+                                ? 'text-electric scale-105 font-bold'
+                                : 'text-slate-app hover:text-electric'
                                 }`}
                         >
                             {link.name}
