@@ -19,6 +19,17 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
+    useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -44,58 +55,60 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-navy-900/90 backdrop-blur-md border-b border-navy-700/50 h-20' : 'bg-transparent border-transparent h-24'}`}>
-            <div className="container-custom flex justify-between items-center h-20">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative">
-                        <ShieldCheck className="w-8 h-8 text-electric group-hover:text-white transition-colors" />
-                        <div className="absolute inset-0 bg-electric/20 blur-lg rounded-full animate-pulse" />
-                    </div>
-                    <span className="text-2xl font-bold tracking-wider text-white">
-                        ALARMTEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">SK</span>
-                    </span>
-                </Link>
+        <>
+            <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-navy-900/90 backdrop-blur-md border-b border-navy-700/50 h-20' : 'bg-transparent border-transparent h-24'}`}>
+                <div className="container-custom flex justify-between items-center h-20">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="relative">
+                            <ShieldCheck className="w-8 h-8 text-electric group-hover:text-white transition-colors" />
+                            <div className="absolute inset-0 bg-electric/20 blur-lg rounded-full animate-pulse" />
+                        </div>
+                        <span className="text-2xl font-bold tracking-wider text-white">
+                            ALARMTEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric to-blue-500">SK</span>
+                        </span>
+                    </Link>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex gap-8 items-center">
-                    {navLinks.map((link) => (
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex gap-8 items-center">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const element = document.querySelector(link.href);
+                                    element?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className={`text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors ${activeSection === link.href.substring(1)
+                                    ? 'text-electric scale-105 font-bold'
+                                    : 'text-slate-app hover:text-electric'
+                                    }`}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                         <a
-                            key={link.name}
-                            href={link.href}
+                            href="#contact"
                             onClick={(e) => {
                                 e.preventDefault();
-                                const element = document.querySelector(link.href);
-                                element?.scrollIntoView({ behavior: 'smooth' });
+                                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className={`text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors ${activeSection === link.href.substring(1)
-                                ? 'text-electric scale-105 font-bold'
-                                : 'text-slate-app hover:text-electric'
-                                }`}
+                            className="px-5 py-2 border border-electric text-electric rounded hover:bg-electric/10 transition-all font-medium text-sm cursor-pointer"
                         >
-                            {link.name}
+                            CENOVÁ PONUKA
                         </a>
-                    ))}
-                    <a
-                        href="#contact"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="px-5 py-2 border border-electric text-electric rounded hover:bg-electric/10 transition-all font-medium text-sm cursor-pointer"
-                    >
-                        CENOVÁ PONUKA
-                    </a>
-                </div>
+                    </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-white hover:text-electric"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-            </div>
+                    {/* Mobile Toggle */}
+                    <button
+                        className="md:hidden text-white hover:text-electric"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
+            </nav>
 
             {/* Mobile Menu Overlay & Sidebar */}
             <AnimatePresence>
@@ -160,7 +173,7 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
-        </nav>
+        </>
     );
 };
 

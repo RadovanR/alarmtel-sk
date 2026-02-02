@@ -44,7 +44,7 @@ const Hero = () => {
                 </motion.div>
 
                 <div
-                    className="relative block mt-20 lg:mt-0"
+                    className="hidden lg:block relative mt-20 lg:mt-0"
                 >
                     {/* Levitating Images Composition - 2 Large Photos */}
                     <div className="relative w-full aspect-square max-w-[500px] mx-auto lg:max-w-none">
